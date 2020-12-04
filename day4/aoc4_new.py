@@ -32,24 +32,19 @@ def check(p):
     (f,v) = p.split(':')
     if f in VALID_VALUES:
         x = VALID_VALUES[f]
-        if type(x) == list and len(x) == 2:
-            if int(v) >= x[0] and int(v) <= x[1]:
+        if (type(x) == list and len(x) == 2) and (int(v) >= x[0] and int(v) <= x[1]):
                 return True
-        elif type(x) == list:
-            if v in x:
+        elif type(x) == list and v in x:
                 return True
-        elif type(x) == int:
-            if len(v) == x:
+        elif type(x) == int and len(v) == x:
                 return True
         elif type(x) == dict:
             for y,e in x.items():
                 if y in v:
                     t = v.strip(y)
-                    if type(e) == int:
-                        if len(t) == e:
+                    if type(e) == int and len(t) == e:
                             return True
-                    elif type(e) == list:
-                        if int(t) >= e[0] and int(t) <= e[1]:
+                    elif type(e) == list and (int(t) >= e[0] and int(t) <= e[1]):
                             return True
     return False
 
