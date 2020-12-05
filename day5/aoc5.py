@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+
 def main():
     lines = []
     with open('input5.txt') as f:
@@ -30,7 +31,7 @@ def main():
         IDS.append(ID)
         # print(r,seatr,seatc, ID, ID_max)
     print(ID_max)
-    
+
     ALLIDS = [x * 8 + y for x in range(0,128) for y in range(0,8)]
     l = range(0, min(IDS))
     h = range(max(IDS), 128*8+8)
@@ -38,6 +39,7 @@ def main():
     B = set(A).difference(l)
     C = set(B).difference(h)
     print(C)
+
 
 if __name__ == '__main__':
     main()
